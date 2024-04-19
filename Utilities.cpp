@@ -21,17 +21,34 @@ System::String^ ConvertToString(std::string& os) {
 #pragma region Messager WinForm
 void Messager::WarningMessage(String^ mess)
 {
-	MessageBox::Show(mess, "¬ÌËÏ‡ÌËÂ!");
+	MessageBox::Show(mess, "–í–Ω–∏–º–∞–Ω–∏–µ!");
 }
 
 void Messager::ExceptionMessage(String^ mess)
 {
-	MessageBox::Show(mess, "¬˚Á‚‡ÌÓ ËÒÍÎ˛˜ÂÌËÂ!");
+	MessageBox::Show(mess, "–í—ã–∑–≤–∞–Ω–æ –∏—Å–∫–ª—é—á–µ–Ω–∏–µ!");
 }
 
-void Messager::ExceptionMessage(Exception^ ex)
+void Messager::ExceptionMessage(Exception^ ex, String^ pathFile = "..\\Log.txt")
 {
-	MessageBox::Show(ex->Message, "¬˚Á‚‡ÌÓ ËÒÍÎ˛˜ÂÌËÂ!");
+	StreamWriter^ sw;
+
+	DateTime^ dt = gcnew DateTime();
+	String^ txt = dt->Now.ToString();
+	txt += " - " + ex.Message;
+
+	try {
+		sw = gcnew StreamWriter(pathFile, true);
+		sw->WriteLine(txt);
+	}
+	catch (Exception^ exMessager) {
+		throw gcnew Exception("Messager::MessageToTxtFile(): " + exMessager->Message);
+	}
+	finally {
+		sw->Close();
+	}
+
+	MessageBox::Show(ex->Message, "–í—ã–∑–≤–∞–Ω–æ –∏—Å–∫–ª—é—á–µ–Ω–∏–µ!");
 }
 
 void Messager::Message(String^ mess, String^ header)
