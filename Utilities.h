@@ -2,6 +2,7 @@
 
 #include <string>
 using namespace System;
+using namespace System::IO;
 using namespace System::Windows::Forms;
 
 // --- Прототипы функций --- 
@@ -33,6 +34,6 @@ namespace StringHelper {
 namespace Messager {
 	void WarningMessage(String^ mess);
 	void ExceptionMessage(String^ mess);
-	void ExceptionMessage(Exception^ ex);
+	void ExceptionMessage(Exception^ ex, String^ pathFile = "..\\Log.txt");
 	void Message(String^ mess, String^ header);
 }
