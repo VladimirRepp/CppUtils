@@ -4,31 +4,31 @@
 using namespace System;
 using namespace System::Windows::Forms;
 
-// --- Прототипы функций --- 
-std::string ConvertToString(System::String^ s); // конвертируем System::string ^ в std::string
-String^ ConvertToString(std::string& os);		// конвертируем std::string в System::string ^  
+// --- РџСЂРѕС‚РѕС‚РёРїС‹ С„СѓРЅРєС†РёР№ --- 
+std::string ConvertToString(System::String^ s); // РєРѕРЅРІРµСЂС‚РёСЂСѓРµРј System::string ^ РІ std::string
+String^ ConvertToString(std::string& os);		// РєРѕРЅРІРµСЂС‚РёСЂСѓРµРј std::string РІ System::string ^  
 
 /// <summary>
-/// Вспомогательные функции для работы со стороками
+/// Р’СЃРїРѕРјРѕРіР°С‚РµР»СЊРЅС‹Рµ С„СѓРЅРєС†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃРѕ СЃС‚РѕСЂРѕРєР°РјРё
 /// </summary>
 namespace StringHelper {
 	/// <summary>
-	/// Конвертирует System::string^ в std::string
+	/// РљРѕРЅРІРµСЂС‚РёСЂСѓРµС‚ System::string^ РІ std::string
 	/// </summary>
-	/// <param name="s"> - системная строка</param>
+	/// <param name="s"> - СЃРёСЃС‚РµРјРЅР°СЏ СЃС‚СЂРѕРєР°</param>
 	/// <returns></returns>
 	std::string ConvertToString(System::String^ s);
 
 	/// <summary>
-	/// Конвертируеи std::string в System::string^  
+	/// РљРѕРЅРІРµСЂС‚РёСЂСѓРµРё std::string РІ System::string^  
 	/// </summary>
-	/// <param name="os"> - стандартная строка</param>
+	/// <param name="os"> - СЃС‚Р°РЅРґР°СЂС‚РЅР°СЏ СЃС‚СЂРѕРєР°</param>
 	/// <returns></returns>
 	String^ ConvertToString(std::string& os);	  
 }
 
 /// <summary>
-/// Вывод соообщений в MessageBox WinForm
+/// Р’С‹РІРѕРґ СЃРѕРѕРѕР±С‰РµРЅРёР№ РІ MessageBox WinForm
 /// </summary>
 namespace Messager {
 	void WarningMessage(String^ mess);
