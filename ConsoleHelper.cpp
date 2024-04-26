@@ -22,20 +22,30 @@ void ConsoleHelper::WriteLine(string message, string header)
 
 void ConsoleHelper::WriteWarning(string message)
 {
-	cout << "Âíèìàíèå! " << message;
+	cout << "Ð’Ð½Ð¸Ð¼Ð°Ð½Ð¸Ðµ! " << message;
 }
 
 void ConsoleHelper::WriteLineWarning(string message)
 {
-	cout << "Âíèìàíèå! " << message << endl;
+	cout << "Ð’Ð½Ð¸Ð¼Ð°Ð½Ð¸Ðµ! " << message << endl;
+}
+
+void ConsoleHelper::WriteError(string message)
+{
+	cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ: " << message;
+}
+
+void ConsoleHelper::WriteLineError(string message)
+{
+	cout << "ÐžÑˆÐ¸Ð±ÐºÐ°! Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ: " << message << endl;
 }
 
 void ConsoleHelper::WriteException(string message)
 {
-	cout << "Èñêëþ÷åíèå! Ñîîáùåíèå: " << message;
+	cout << "Ð˜ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ! Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ: " << message;
 }
 
 void ConsoleHelper::WriteLineException(string message)
 {
-	cout << "Èñêëþ÷åíèå! Ñîîáùåíèå: " << message << endl;
+	cout << "Ð˜ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ! Ð¡Ð¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ: " << message << endl;
 }
