@@ -236,7 +236,7 @@ bool Encoder_CryptoAPI::DecryptContentOfFile(string path_to_source_file, string 
 {
 	ofstream fout(path_to_result_file, ios::out);
 
-	ifstream fin(path_to_source_file);
+	ifstream fin(path_to_source_file, ios::binary);
 	if (!fin) {
 		MyHandleError("Ошибка октрытия файла: " + path_to_source_file);
 		return false;
@@ -248,11 +248,20 @@ bool Encoder_CryptoAPI::DecryptContentOfFile(string path_to_source_file, string 
 
 	string txt;
 	string decrypt_txt;
+	vector<string> lines;
+
 	while (!fin.eof()) {
 		fin >> txt;
-		decrypt_txt = Decrypt(txt);
+		lines.push_back(Decrypt(txt));
+	}
+	lines.pop_back();
 
-		fout << decrypt_txt << endl;
+	int i = 0;
+	for (auto s : lines) {
+		fout << s;
+
+		if (++i < lines.size())
+			fout << endl;
 	}
 
 	fin.close();
