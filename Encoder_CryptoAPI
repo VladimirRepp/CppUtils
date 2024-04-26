@@ -12,7 +12,7 @@ using namespace std;
 /// <summary>
 /// Based On CryptoAPI
 /// </summary>
-class Encoder
+class Encoder_CryptoAPI
 {
 	string path_to_session_key;
 
@@ -23,9 +23,9 @@ class Encoder
 	void LoadSessionKey();
 
 public:
-	Encoder();
-	Encoder(string path_to_session_key) : path_to_session_key(path_to_session_key) { hProv = NULL; hSessionKey = NULL; }
-	~Encoder();
+	Encoder_CryptoAPI();
+	Encoder_CryptoAPI(string path_to_session_key) : path_to_session_key(path_to_session_key) { hProv = NULL; hSessionKey = NULL; }
+	~Encoder_CryptoAPI();
 
 	string Encrypt(string source_str, bool isDebugPrint = false);
 	string Decrypt(string source_str, bool isDebugPrint = false);
@@ -33,7 +33,6 @@ public:
 
 /*
 * === Usage Example: ===
- 
 #include <Windows.h>
 #include "Encoder.h"
 
@@ -42,7 +41,7 @@ void main() {
 	SetConsoleOutputCP(1251);
 
 	Encoder encoder;
-	string coder_str = encoder.Encrypt("ÓíèâåðÏåðâûé", true);
+	string coder_str = encoder.Encrypt("Ð£Ð½Ð¸Ð²ÐµÑ€ÐŸÐµÑ€Ð²Ñ‹Ð¹", true);
 	
 	cout << endl;
 	encoder.Decrypt(coder_str, true);
@@ -50,6 +49,5 @@ void main() {
 	system("pause");
 	return;
 }
-
 */
 
