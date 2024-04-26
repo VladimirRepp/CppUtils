@@ -20,7 +20,7 @@ void Encoder_CryptoAPI::LoadSessionKey()
 
 Encoder_CryptoAPI::Encoder_CryptoAPI()
 {
-	path_to_session_key = "SessionKey.txt";
+	path_to_session_key = "SessionKey.bin";
 
 	hSessionKey = NULL;
 	hProv = NULL;
