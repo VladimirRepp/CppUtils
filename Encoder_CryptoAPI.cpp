@@ -214,7 +214,7 @@ bool Encoder_CryptoAPI::EncryptContentOfFile(string path_to_source_file, string 
 	}
 
 	if (isHasKeyInFile) {
-		fout << hSessionKey;
+		fout << hSessionKey << endl;
 	}
 
 	string txt;
