@@ -202,3 +202,61 @@ string Encoder_CryptoAPI::Decrypt(string source_str, bool isDebugPrint)
 
 	return decrypt_str;
 }
+
+bool Encoder_CryptoAPI::EncryptContentOfFile(string path_to_source_file, string path_to_result_file, bool isHasKeyInFile)
+{
+	ofstream fout(path_to_result_file, ios::out);
+
+	ifstream fin(path_to_source_file);
+	if (!fin) {
+		MyHandleError("Ошибка октрытия файла: " + path_to_source_file);
+		return false;
+	}
+
+	if (isHasKeyInFile) {
+		fout << hSessionKey;
+	}
+
+	string txt;
+	string encrypt_txt;
+	while (!fin.eof()) {
+		fin >> txt;
+		encrypt_txt = Encrypt(txt);
+
+		fout << encrypt_txt << endl;
+	}
+
+	fin.close();
+	fout.close();
+
+	MyHandleMessage("Файл зашифрован!");
+}
+
+bool Encoder_CryptoAPI::DecryptContentOfFile(string path_to_source_file, string path_to_result_file, bool isHasKeyInFile)
+{
+	ofstream fout(path_to_result_file, ios::out);
+
+	ifstream fin(path_to_source_file);
+	if (!fin) {
+		MyHandleError("Ошибка октрытия файла: " + path_to_source_file);
+		return false;
+	}
+
+	if (isHasKeyInFile) {
+		fin >> hSessionKey;
+	}
+
+	string txt;
+	string decrypt_txt;
+	while (!fin.eof()) {
+		fin >> txt;
+		decrypt_txt = Decrypt(txt);
+
+		fout << decrypt_txt << endl;
+	}
+
+	fin.close();
+	fout.close();
+
+	MyHandleMessage("Файл расшифрован!");
+}
