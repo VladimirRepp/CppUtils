@@ -16,6 +16,10 @@ System::String^ ConvertToString(std::string& os) {
 
 	return s;
 }
+
+int MyRandom(int from, int to) {
+	return rand()% (to - from + 1) + from;
+}
 #pragma endregion
 
 #pragma region Messager WinForm
@@ -29,13 +33,13 @@ void Messager::ExceptionMessage(String^ mess)
 	MessageBox::Show(mess, "Вызвано исключение!");
 }
 
-void Messager::ExceptionMessage(Exception^ ex, String^ pathFile = "..\\Log.txt")
+void Messager::ExceptionMessage(Exception^ ex, String^ pathFile)
 {
 	StreamWriter^ sw;
 
 	DateTime^ dt = gcnew DateTime();
 	String^ txt = dt->Now.ToString();
-	txt += " - " + ex.Message;
+	txt += " - " + ex->Message;
 
 	try {
 		sw = gcnew StreamWriter(pathFile, true);
@@ -76,3 +80,47 @@ String^ StringHelper::ConvertToString(std::string& os)
 	return s;
 }
 #pragma endregion
+
+#pragma region ConsoleHelper
+
+void ConsoleHelper::Write(std::string message)
+{
+	std::cout << message;
+}
+
+void ConsoleHelper::WriteLine(std::string message)
+{
+	std::cout << message << std::endl;
+}
+
+void ConsoleHelper::Write(std::string message, std::string header)
+{
+	std::cout << header << " " << message;
+}
+
+void ConsoleHelper::WriteLine(std::string message, std::string header)
+{
+	std::cout << header << " " << message << std::endl;
+}
+
+void ConsoleHelper::WriteWarning(std::string message)
+{
+	std::cout << "Внимание! " << message;
+}
+
+void ConsoleHelper::WriteLineWarning(std::string message)
+{
+	std::cout << "Внимание! " << message << std::endl;
+}
+
+void ConsoleHelper::WriteException(std::string message)
+{
+	std::cout << "Исключение! Сообщение: " << message;
+}
+
+void ConsoleHelper::WriteLineException(std::string message)
+{
+	std::cout << "Исключение! Сообщение: " << message << std::endl;
+}
+#pragma endregion
+
