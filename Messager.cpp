@@ -7,15 +7,15 @@ void Messager::Show(String^ message, String^ header)
 
 void Messager::ShowWarning(String^ message)
 {
-	MessageBox::Show(message, "Внимание!");
+	MessageBox::Show(message, "Р’РЅРёРјР°РЅРёРµ!");
 }
 
 void Messager::ShowError(String^ message)
 {
-	MessageBox::Show(message, "Ошибка!");
+	MessageBox::Show(message, "РћС€РёР±РєР°!");
 }
 
 void Messager::ShowException(String^ message)
 {
-	MessageBox::Show(message, "Вызвано исключение!");
+	MessageBox::Show(message, "Р’С‹Р·РІР°РЅРѕ РёСЃРєР»СЋС‡РµРЅРёРµ!");
 }
