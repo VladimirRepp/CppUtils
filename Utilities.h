@@ -8,8 +8,8 @@ using namespace System::Windows::Forms;
 
 // --- Прототипы функций --- 
 std::string ConvertToString(System::String^ s); // конвертируем System::string ^ в std::string
-String^ ConvertToString(std::string& os);		// конвертируем std::string в System::string ^  
-int MyRandom(int from, int to);					// Выдает псевдослучайное значение в диапазоне (включая)
+String^ ConvertToString(std::string& os);	// конвертируем std::string в System::string ^  
+int MyRandom(int from, int to);			// Выдает псевдослучайное значение в диапазоне (включая)
 
 /// <summary>
 /// Вспомогательные функции для работы со стороками
@@ -38,6 +38,16 @@ namespace MessageHelper {
 	void ShowWarning(String^ message);
 	void ShowError(String^ message);
 	void ShowException(String^ message);
+}
+
+/// <summary>
+/// Проверка входных строк
+/// </summary>
+namespace VerificationHelper {
+	bool JustString(std::string text);
+	bool JustString(System::String^ text);
+	bool JustNumber(std::string text);
+	bool JustNumber(System::String^ text);
 }
 
 /// <summary>
