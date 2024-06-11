@@ -9,7 +9,7 @@ using namespace System::Windows::Forms;
 // --- Прототипы функций --- 
 std::string ConvertToString(System::String^ s); // конвертируем System::string ^ в std::string
 String^ ConvertToString(std::string& os);	// конвертируем std::string в System::string ^  
-int MyRandom(int from, int to);			// Выдает псевдослучайное значение в диапазоне (включая)
+int MyRandom(int from, int to);			// выдает псевдослучайное значение в диапазоне (включая)
 
 /// <summary>
 /// Вспомогательные функции для работы со стороками
@@ -27,7 +27,7 @@ namespace StringHelper {
 	/// </summary>
 	/// <param name="os"> - стандартная строка</param>
 	/// <returns></returns>
-	String^ ConvertToString(std::string& os);	  
+	String^ ConvertToString(std::string& os);
 }
 
 /// <summary>
@@ -44,9 +44,9 @@ namespace MessageHelper {
 /// Проверка входных строк
 /// </summary>
 namespace VerificationHelper {
-	bool JustString(std::string text);
+	bool JustString(std::string& text);
 	bool JustString(System::String^ text);
-	bool JustNumber(std::string text);
+	bool JustNumber(std::string& text);
 	bool JustNumber(System::String^ text);
 }
 
@@ -54,12 +54,12 @@ namespace VerificationHelper {
 /// Вывод сообщений в консоль
 /// </summary>
 namespace ConsoleHelper {
-	void Write(std::string message);
-	void WriteLine(std::string message);
-	void Write(std::string message, std::string header);
-	void WriteLine(std::string message, std::string header);
-	void WriteWarning(std::string message);
-	void WriteLineWarning(std::string message);
-	void WriteException(std::string message);
-	void WriteLineException(std::string message);
+	void Write(std::string& message);
+	void WriteLine(std::string& message);
+	void Write(std::string& message, std::string& header);
+	void WriteLine(std::string& message, std::string& header);
+	void WriteWarning(std::string& message);
+	void WriteLineWarning(std::string& message);
+	void WriteException(std::string& message);
+	void WriteLineException(std::string& message);
 }
