@@ -22,42 +22,25 @@ int MyRandom(int from, int to) {
 }
 #pragma endregion
 
-#pragma region Messager WinForm
-void Messager::WarningMessage(String^ mess)
+#pragma region MessageHelper WinForm
+void MessageHelper::Show(String^ message, String^ header)
 {
-	MessageBox::Show(mess, "Внимание!");
+	MessageBox::Show(message, header);
 }
 
-void Messager::ExceptionMessage(String^ mess)
+void MessageHelper::ShowWarning(String^ message)
 {
-	MessageBox::Show(mess, "Вызвано исключение!");
+	MessageBox::Show(message, "Внимание!");
 }
 
-void Messager::ExceptionMessage(Exception^ ex, String^ pathFile)
+void MessageHelper::ShowError(String^ message)
 {
-	StreamWriter^ sw;
-
-	DateTime^ dt = gcnew DateTime();
-	String^ txt = dt->Now.ToString();
-	txt += " - " + ex->Message;
-
-	try {
-		sw = gcnew StreamWriter(pathFile, true);
-		sw->WriteLine(txt);
-	}
-	catch (Exception^ exMessager) {
-		throw gcnew Exception("Messager::MessageToTxtFile(): " + exMessager->Message);
-	}
-	finally {
-		sw->Close();
-	}
-
-	MessageBox::Show(ex->Message, "Вызвано исключение!");
+	MessageBox::Show(message, "Ошибка!");
 }
 
-void Messager::Message(String^ mess, String^ header)
+void MessageHelper::ShowException(String^ message)
 {
-	MessageBox::Show(mess, header);
+	MessageBox::Show(message, "Вызвано исключение!");
 }
 #pragma endregion
 
