@@ -33,11 +33,11 @@ namespace StringHelper {
 /// <summary>
 /// Вывод соообщений в MessageBox WinForm
 /// </summary>
-namespace Messager {
-	void WarningMessage(String^ mess);
-	void ExceptionMessage(String^ mess);
-	void ExceptionMessage(Exception^ ex, String^ pathFile = "..\\Log.txt");
-	void Message(String^ mess, String^ header = "");
+namespace MessageHelper {
+	void Show(String^ message, String^ header);
+	void ShowWarning(String^ message);
+	void ShowError(String^ message);
+	void ShowException(String^ message);
 }
 
 /// <summary>
