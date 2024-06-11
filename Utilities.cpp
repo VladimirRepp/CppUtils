@@ -64,6 +64,61 @@ String^ StringHelper::ConvertToString(std::string& os)
 }
 #pragma endregion
 
+#pragma region === VerificationHelper === 
+bool VerificationHelper::JustString(std::string text)
+{
+	for (auto c : text) {
+		if (c == '0' || c == '1' ||
+			c == '2' || c == '3' ||
+			c == '4' || c == '5' ||
+			c == '6' || c == '7' ||
+			c == '8' || c == '9')
+			return false;
+	}
+
+	return true;
+}
+
+bool VerificationHelper::JustString(System::String^ text)
+{
+	for each (auto c in text)
+	{
+		if (c == '0' || c == '1' ||
+			c == '2' || c == '3' ||
+			c == '4' || c == '5' ||
+			c == '6' || c == '7' ||
+			c == '8' || c == '9')
+			return false;
+	} 
+
+	return true;
+}
+
+bool VerificationHelper::JustNumber(std::string text)
+{
+	for (auto c : text) {
+		int ascii = c; // ASCII Val converted
+
+		if (!(c >= 48 && c <= 57))
+			return false;
+	}
+
+	return true;
+}
+
+bool VerificationHelper::JustNumber(System::String^ text)
+{
+	for each (auto c in text){
+		int ascii = c; // ASCII Val converted
+
+		if (!(c >= 48 && c <= 57))
+			return false;
+	}
+
+	return true;
+}
+#pragma endregion
+
 #pragma region === ConsoleHelper ===
 void ConsoleHelper::Write(std::string message)
 {
