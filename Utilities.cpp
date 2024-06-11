@@ -1,6 +1,6 @@
 #include "Utilities.h"
 
-#pragma region Functions
+#pragma region === Functions ===
 std::string ConvertToString(System::String^ s) {
 	using namespace Runtime::InteropServices;
 	const char* chars =
@@ -22,7 +22,7 @@ int MyRandom(int from, int to) {
 }
 #pragma endregion
 
-#pragma region MessageHelper WinForm
+#pragma region === MessageHelper WinForm ===
 void MessageHelper::Show(String^ message, String^ header)
 {
 	MessageBox::Show(message, header);
@@ -44,7 +44,7 @@ void MessageHelper::ShowException(String^ message)
 }
 #pragma endregion
 
-#pragma region StringHelper
+#pragma region === StringHelper ===
 std::string StringHelper::ConvertToString(System::String^ s)
 {
 	using namespace Runtime::InteropServices;
@@ -64,8 +64,7 @@ String^ StringHelper::ConvertToString(std::string& os)
 }
 #pragma endregion
 
-#pragma region ConsoleHelper
-
+#pragma region === ConsoleHelper ===
 void ConsoleHelper::Write(std::string message)
 {
 	std::cout << message;
