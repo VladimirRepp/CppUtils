@@ -18,7 +18,7 @@ System::String^ ConvertToString(std::string& os) {
 }
 
 int MyRandom(int from, int to) {
-	return rand()% (to - from + 1) + from;
+	return rand() % (to - from + 1) + from;
 }
 #pragma endregion
 
@@ -65,7 +65,7 @@ String^ StringHelper::ConvertToString(std::string& os)
 #pragma endregion
 
 #pragma region === VerificationHelper === 
-bool VerificationHelper::JustString(std::string text)
+bool VerificationHelper::JustString(std::string& text)
 {
 	for (auto c : text) {
 		if (c == '0' || c == '1' ||
@@ -94,7 +94,7 @@ bool VerificationHelper::JustString(System::String^ text)
 	return true;
 }
 
-bool VerificationHelper::JustNumber(std::string text)
+bool VerificationHelper::JustNumber(std::string& text)
 {
 	for (auto c : text) {
 		int ascii = c; // ASCII Val converted
@@ -120,42 +120,42 @@ bool VerificationHelper::JustNumber(System::String^ text)
 #pragma endregion
 
 #pragma region === ConsoleHelper ===
-void ConsoleHelper::Write(std::string message)
+void ConsoleHelper::Write(std::string& message)
 {
 	std::cout << message;
 }
 
-void ConsoleHelper::WriteLine(std::string message)
+void ConsoleHelper::WriteLine(std::string& message)
 {
 	std::cout << message << std::endl;
 }
 
-void ConsoleHelper::Write(std::string message, std::string header)
+void ConsoleHelper::Write(std::string& message, std::string& header)
 {
 	std::cout << header << " " << message;
 }
 
-void ConsoleHelper::WriteLine(std::string message, std::string header)
+void ConsoleHelper::WriteLine(std::string& message, std::string& header)
 {
 	std::cout << header << " " << message << std::endl;
 }
 
-void ConsoleHelper::WriteWarning(std::string message)
+void ConsoleHelper::WriteWarning(std::string& message)
 {
 	std::cout << "Внимание! " << message;
 }
 
-void ConsoleHelper::WriteLineWarning(std::string message)
+void ConsoleHelper::WriteLineWarning(std::string& message)
 {
 	std::cout << "Внимание! " << message << std::endl;
 }
 
-void ConsoleHelper::WriteException(std::string message)
+void ConsoleHelper::WriteException(std::string& message)
 {
 	std::cout << "Исключение! Сообщение: " << message;
 }
 
-void ConsoleHelper::WriteLineException(std::string message)
+void ConsoleHelper::WriteLineException(std::string& message)
 {
 	std::cout << "Исключение! Сообщение: " << message << std::endl;
 }
